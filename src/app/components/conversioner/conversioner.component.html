@@ -1,0 +1,33 @@
+<div class="conversioner">
+    <div class="container">
+        <div class="conversioner__block">
+            <div class="conversioner__row">
+                <div>
+                    <div class="conversioner__title">Сума</div>
+                    <input (ngModelChange)="onEntering()" [(ngModel)]="num" name="num" class="conversioner__enter"
+                        type="number" placeholder="Введіть суму...">
+                </div>
+                <div>
+                    <div class="conversioner__title conversioner__option">З валюти</div>
+                    <ng-select (ngModelChange)="onFromChange($event)" [(ngModel)]="from" name="from">
+                        <ng-option *ngFor="let option of options" [value]="option">
+                            {{option}}
+                        </ng-option>
+                    </ng-select>
+                </div>
+                <button (click)="onSwitch()" class="conversioner__switch">
+                    <img src="assets/img/switch.png" alt="">
+                </button>
+                <div>
+                    <div class="conversioner__title conversioner__option">У валюту</div>
+                    <ng-select (ngModelChange)="onToChange($event)" [(ngModel)]="to" name="to">
+                        <ng-option *ngFor="let option of options" [value]="option">
+                            {{option}}
+                        </ng-option>
+                    </ng-select>
+                </div>
+            </div>
+            <div class="conversioner__result">Результат: {{result}}</div>
+        </div>
+    </div>
+</div>
